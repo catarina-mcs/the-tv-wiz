@@ -1,38 +1,313 @@
-.App {
-  text-align: center;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    background-blend-mode: multiply;
+    background-image: url(./images/background.png);
+    background-color: var(--background);
+    color: var(--body);
+    font-family: 'Roboto', sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.light-theme {
+    --medium: #63739C;
+    --lightest-darkest: #F6F8FD;
+    --opposite-lightest-dark: #46516C;
+    --placeholder: #808080;
+    --body: #333333;
+    --background: #EEF2FC;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.dark-theme {
+    --medium: #D2DCF6;
+    --lightest-darkest: #46516C;
+    --opposite-lightest-dark: #F6F8FD;
+    --placeholder: #A6A6A6;
+    --body: #F2F2F2;
+    --background: #505C7B;
 }
 
-.App-link {
-  color: #61dafb;
+.container {
+    max-width: 1000px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 2.5em;
+    position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.credits {
+    font-size: 0.875rem;
+    text-align: center;
+    color: var(--placeholder);
+    position: absolute;
+    bottom: 0;
+    width: calc(100% - 80px);
+    margin: 1em auto;
+}
+
+.credits a {
+    color: var(--placeholder);
+}
+.toggle {
+    background-color: var(--lightest-darkest);
+    border-radius: 50px;
+    width: 50px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 1em;
+    display: flex;
+    cursor: pointer;
+}
+
+.theme-icon {
+    color: var(--medium);
+    background-color: var(--lightest-darkest);
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-icon-active {
+    color: var(--lightest-darkest);
+    background-color: var(--medium);
+}
+
+.title {
+    width: 300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.title-span {
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: var(--medium);
+    margin-top: 0.5em;
+}
+
+.tv {
+    margin: 0 1em;
+}
+
+.search-form {
+    margin: 2em 0;
+    display: grid;
+    gap: 0.6em;
+}
+
+.search-bar, .search-button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.875rem;
+    border: none;
+    border-radius: 50px;
+    padding: 0.75em 1.875em;
+}
+
+.search-bar {
+    color: var(--body);
+    background-color: var(--lightest-darkest);
+}
+
+::placeholder {
+    color: var(--placeholder);
+    opacity: 1;    
+}
+
+.search-button {
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--lightest-darkest);
+    background-color: var(--medium);
+    cursor: pointer;
+    transition: all 250ms ease-in;
+}
+
+.search-button:hover {
+    background-color: var(--opposite-lightest-dark);
+}
+
+.results-list {
+    display: grid;
+    row-gap: 2em;
+}
+
+.card {
+    line-height: 1.4;
+    background-color: var(--lightest-darkest);
+    border-radius: 10px;
+    padding: 1.875em;
+    display: grid;
+}
+
+.card:last-of-type {
+    margin-bottom: 1em;
+}
+
+.card-poster {
+    justify-self: center;
+    width: 185px;
+    height: 278px;
+}
+
+.card-header {
+    font-weight: 500;
+    margin: 2em 0 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-size: 1.375rem;
+    color: var(--medium);
+    margin-bottom: 0.5em;
+}
+
+.status-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    border-radius: 50px;
+    padding: 0.5em 1.5em;
+    align-self: start;
+}
+
+.status-tag-ended {
+    color: #8A4F19;
+    background-color: #F1D0B2;
+}
+
+.status-tag-ongoing {
+    color: #457430;
+    background-color: #CBE4BE;
+}
+
+.status-tag-canceled {
+    color: #8A1919;
+    background-color: #F1B2B2;
+}
+
+.status-tag-default {
+    color: var(--lightest-darkest);
+    background-color: var(--opposite-lightest-dark);
+}
+
+.card-category {
+    color: var(--medium);
+    font-weight: 500;
+    margin: 1em 0 0.3em;
+}
+
+.card-info-not-available {
+    color: var(--placeholder);
+}
+
+.card-link {
+    color: var(--medium);
+    font-weight: 500;
+    margin-top: 1em;
+    justify-self: start;
+    transition: all 150ms ease-in;
+}
+
+.card-link:hover {
+    color: var(--opposite-lightest-dark);
+}
+
+@media screen and (min-width: 600px) {
+    .search-form {
+        grid-template-columns: 1fr auto;
+    }
+
+    .card {
+        grid-template-columns: 110px auto;
+        row-gap: 1em;
+    }
+
+    .card * {
+        margin: 0;
+    }
+
+    .card-poster {
+        grid-column: 1 / -1;
+    }
+
+    .card-header {
+        flex-direction: row;
+        margin: 1em 0 0.5em;
+        grid-column: 1 / -1;
+    }
+
+    .status-tag {
+        margin-left: 1em;
+    }
+    
+    .card-category {
+        grid-column: 1 / 2;
+        margin: 0;
+    }
+    
+    .card-info {
+        grid-column: 2 / 3;
+    }
+    
+    .card-link {
+        grid-column: 2 / -1;
+    }
+}
+
+@media screen and (min-width: 850px) {
+    .card {
+        grid-template-columns: 185px 90px auto;
+        column-gap: 1.2em;
+        row-gap: 1em;
+        align-items: start;
+    }
+
+    .card-poster {
+        grid-row: 1 / 8;
+        grid-column: 1 / 2;
+    }
+
+    .card-header {
+        margin: 0;
+        margin-bottom: 1em;
+        grid-column: 2 / 4;
+    }
+
+    .card-category, 
+    .card-info {
+        align-self: start;
+    }
+
+    .card-category {
+        grid-column: 2 / 3;
+    }
+
+    .card-category-margin-top {
+        margin-top: 0.5em;
+    }
+    
+    .card-info {
+        grid-column: 3 / 4;
+    }
+    
+    .card-category-full,
+    .card-info-full,
+    .card-link {
+        grid-column: 1 / -1;
+    }
+
+    .card-info-full {
+        margin-top: -0.7em;
+    }
 }

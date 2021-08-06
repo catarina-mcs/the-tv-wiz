@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import Search from './Search';
+import ThemeToggler from './ThemeToggler';
+import tvGraphic from './images/tv-light-theme.png';
 
 function App() {
+  document.documentElement.className = 'light-theme';
+
+  function clear() {
+    document.querySelector('.results-list').style.display = 'none';
+    document.querySelector('.search-bar').value = '';
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <div className='title' onClick={clear}>
+        <span className='title-span'>the</span>
+        <img className='tv' id='tv' src={tvGraphic} alt='tv'/>
+        <span className='title-span'>wiz</span>
+      </div>
+      <ThemeToggler />
+      <Search />
+      <p className="credits">
+        This product uses the <a href="https://www.themoviedb.org/" target="_blank" rel="noreferrer">TMDb</a> API but is not endorsed or certified by <a href="https://www.themoviedb.org/" target="_blank" rel="noreferrer">TMDb</a>.
+      </p>
     </div>
   );
 }
