@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/the-tv-wiz/static/css/main.0f5066f1.chunk.css",
+    "main.js": "/the-tv-wiz/static/js/main.aac30698.chunk.js",
+    "main.js.map": "/the-tv-wiz/static/js/main.aac30698.chunk.js.map",
+    "runtime-main.js": "/the-tv-wiz/static/js/runtime-main.48bcf16f.js",
+    "runtime-main.js.map": "/the-tv-wiz/static/js/runtime-main.48bcf16f.js.map",
+    "static/js/2.8930de2e.chunk.js": "/the-tv-wiz/static/js/2.8930de2e.chunk.js",
+    "static/js/2.8930de2e.chunk.js.map": "/the-tv-wiz/static/js/2.8930de2e.chunk.js.map",
+    "static/js/3.e58bfe78.chunk.js": "/the-tv-wiz/static/js/3.e58bfe78.chunk.js",
+    "static/js/3.e58bfe78.chunk.js.map": "/the-tv-wiz/static/js/3.e58bfe78.chunk.js.map",
+    "index.html": "/the-tv-wiz/index.html",
+    "static/css/main.0f5066f1.chunk.css.map": "/the-tv-wiz/static/css/main.0f5066f1.chunk.css.map",
+    "static/js/2.8930de2e.chunk.js.LICENSE.txt": "/the-tv-wiz/static/js/2.8930de2e.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/the-tv-wiz/static/media/background.26a3c21e.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.48bcf16f.js",
+    "static/js/2.8930de2e.chunk.js",
+    "static/css/main.0f5066f1.chunk.css",
+    "static/js/main.aac30698.chunk.js"
+  ]
+}
